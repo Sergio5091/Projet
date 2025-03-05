@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Générateur de factures</title>
+</head>
+
+<body>
+    <div class="global-container">
+        <h1>FACTURATION</h1>
+
+        <!-- Section Client (Sergio) -->
+        <fieldset class="client-section">
+            <legend class="legend legend1">Informations Client</legend>
+            <label for="clientName">Nom :</label>
+            <input type="text" id="clientName" style="margin-left: 4.5em;"> <br><br>
+
+            <label for="clientEmail">Email :</label>
+            <input type="email" id="clientEmail" style="margin-left: 4em;">
+        </fieldset> <br>
+
+        <!-- Section Articles (Eustache) -->
+        <div class="article-container">
+            <fieldset class="fieldsetproduit">
+                <legend id="legend2">Informations Produit</legend>
+                <div>
+                    <label>Nom :</label>
+                    <input type="text" id="articleName" style="margin-left: 4.5em;"> <br><br>
+
+                    <label>Quantité :</label>
+                    <input type="number" id="articleQuantity" min="1" style="margin-left: 2.4em;"> <br><br>
+
+                    <label>Prix (FCFA) :</label>
+                    <input type="number" id="articlePrice" min="0" style="margin-left:1em;"> <br><br>
+
+                    <label>Remise % :</label>
+                    <input type="number" id="discountRate" min="0" max="100" style="margin-left: 2.2em;"><br><br>
+
+                    <button id="addArticle">Ajouter</button>
+                </div>
+                <div class="divtable">
+                    <table id="invoice-preview">
+                        <thead>
+                            <tr>
+                                <th>Nom du Produit</th>
+                                <th>Quantité</th>
+                                <th>Prix (FCFA)</th>
+                                <th>Remise (%)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="articleBody">
+                            <!-- Les articles ajoutés seront affichés ici -->
+                        </tbody>
+                    </table>
+                </div>
+            </fieldset> <br><br>
+        </div>
+
+        <!-- Section Informations Entreprise (deroulante) -->
+        <details class="company-details">
+            <summary>Informations de l'Entreprise ⬇️</summary>
+            <fieldset class="company-section">
+                <legend>Informations de l'Entreprise</legend>
+                <label for="companyName">Nom de l'entreprise :</label>
+                <input type="text" id="companyName" class="input-field"><br><br>
+
+                <label for="companyLogo">Logo de l'entreprise (URL) :</label>
+                <input type="text" id="companyLogo" class="input-field"><br><br>
+
+                <label for="companyWebsite">Site Web :</label>
+                <input type="text" id="companyWebsite" class="input-field"><br><br>
+
+                <label for="companyPhone">Numéro du Responsable :</label>
+                <input type="text" id="companyPhone" class="input-field"><br><br>
+
+                <label for="companyAddress">Adresse :</label>
+                <input type="text" id="companyAddress" class="input-field"><br><br>
+
+                <button id="saveCompanyInfo" class="save-btn">Sauvegarder</button>
+            </fieldset>
+        </details>
+
+        <!-- Section Totaux -->
+        <div class="container">
+            <fieldset>
+                <legend id="totaux">TOTAUX</legend>
+                <div class="totals-section">
+                    <p>Total HT : <span id="total-ht">0</span> Fcfa</p>
+                    <p>Total TTC : <span id="total-ttc">0</span> Fcfa</p>
+                </div>
+                <button onclick="generatePDF()" class="generatePDF" disabled>Générer PDF</button>
+            </fieldset>
+        </div>
+    </div>
+
+    <!-- Le qr code du site web -->
+    <div id="qrcode" ></div>
+    <script src="main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</body>
+
+</html>
