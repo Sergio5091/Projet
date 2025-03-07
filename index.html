@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <title>Générateur de factures</title>
 </head>
@@ -12,15 +13,35 @@
 <body>
     <div class="global-container">
         <h1>FACTURATION</h1>
+         <!-- Section Informations Entreprise (deroulante) -->
+         <details class="company-details">
+            <summary>Informations de l'Entreprise ⬇️</summary>
+            <fieldset class="company-section">
+                <legend>Informations de l'Entreprise</legend>
+                <label for="companyName">Nom de l'entreprise :</label>
+                <input type="text" id="companyName" class="input-field"><br><br>
+
+                <label for="companyLogo">Logo de l'entreprise (URL) :</label>
+                <input type="text" id="companyLogo" class="input-field"><br><br>
+
+                <label for="companyWebsite">Site Web :</label>
+                <input type="text" id="companyWebsite" class="input-field"><br><br>
+
+                <label for="companyPhone">Numéro du Responsable :</label>
+                <input type="text" id="companyPhone" class="input-field"><br><br>
+
+                <label for="companyAddress">Adresse :</label>
+                <input type="text" id="companyAddress" class="input-field"><br><br>
+            </fieldset>
+        </details>
 
         <!-- Section Client (Sergio) -->
         <fieldset class="client-section">
             <legend class="legend legend1">Informations Client</legend>
             <label for="clientName">Nom :</label>
-            <input type="text" id="clientName" style="margin-left: 4.5em;"> <br><br>
-
+            <input type="text" id="clientName" class="input-field"><br><br>
             <label for="clientEmail">Email :</label>
-            <input type="email" id="clientEmail" style="margin-left: 4em;">
+            <input type="email" id="clientEmail" class="input-field"><br><br>
         </fieldset> <br>
 
         <!-- Section Articles (Eustache) -->
@@ -60,29 +81,7 @@
             </fieldset> <br><br>
         </div>
 
-        <!-- Section Informations Entreprise (deroulante) -->
-        <details class="company-details">
-            <summary>Informations de l'Entreprise ⬇️</summary>
-            <fieldset class="company-section">
-                <legend>Informations de l'Entreprise</legend>
-                <label for="companyName">Nom de l'entreprise :</label>
-                <input type="text" id="companyName" class="input-field"><br><br>
-
-                <label for="companyLogo">Logo de l'entreprise (URL) :</label>
-                <input type="text" id="companyLogo" class="input-field"><br><br>
-
-                <label for="companyWebsite">Site Web :</label>
-                <input type="text" id="companyWebsite" class="input-field"><br><br>
-
-                <label for="companyPhone">Numéro du Responsable :</label>
-                <input type="text" id="companyPhone" class="input-field"><br><br>
-
-                <label for="companyAddress">Adresse :</label>
-                <input type="text" id="companyAddress" class="input-field"><br><br>
-
-                <button id="saveCompanyInfo" class="save-btn">Sauvegarder</button>
-            </fieldset>
-        </details>
+       
 
         <!-- Section Totaux -->
         <div class="container">

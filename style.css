@@ -13,7 +13,6 @@ body {
 }
 
 .global-container {
-  max-width: 900px;
   margin: 0 auto;
   background-color: #fff;
   padding: 20px;
@@ -61,6 +60,7 @@ h1 {
 
 /* Section Articles */
 .article-container {
+  overflow: hidden;
   margin-top: 30px;
 }
 
@@ -117,14 +117,17 @@ h1 {
 
 table {
   width: 100%;
+  max-width: 100%;
   border-collapse: collapse;
   margin-top: 15px;
+  table-layout: fixed;
 }
 
 th, td {
   padding: 10px;
   text-align: left;
   border-bottom: 1px solid #ddd;
+  word-wrap: break-word;
 }
 
 th {
@@ -192,11 +195,6 @@ legend {
       display: inline-block;
   }
 
-  .article-container input,
-  .client-section input {
-      width: 100%;
-      max-width: none;
-  }
 }
 
 h1, 
@@ -207,24 +205,6 @@ h1,
 
 #legend2, #totaux {
   color: #2196F3;
-}
-
-/*Responsive design*/
-
-
-/* Pour les tablettes */
-@media (max-width: 768px) {
-  body {
-    font-size: 16px;
-  }
-}
-
-
-/* Pour les smartphones */
-@media (max-width: 480px) {
-  body {
-    font-size: 14px;
-  }
 }
 
 /* Section Informations Entreprise */
@@ -285,10 +265,6 @@ label {
 .company-section input {
   margin-bottom: 10px;
 }
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .global-container {
-      width: 100%;
-      padding: 10px;
-  }
+.company-details{
+  margin-bottom: 13px;
+}
